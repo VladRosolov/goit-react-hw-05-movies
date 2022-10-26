@@ -15,26 +15,30 @@ const Cast = () => {
     return null;
   }
   console.log(movie.cast);
-  return (
-    <div>
-      <ul className={css.castList}>
-        {movie.cast.map(item => {
-          if (item.profile_path) {
+  if (movie) {
+    return (
+      <div>
+        <ul className={css.castList}>
+          {movie.cast.map(item => {
             return (
               <li key={item.id} className={css.castItem}>
                 <p>{item.name}</p>
                 <img
-                  src={`https://www.themoviedb.org/t/p/w500${item.profile_path}`}
+                  src={
+                    item.profile_path
+                      ? `https://www.themoviedb.org/t/p/w500${item.profile_path}`
+                      : 'Poster image'
+                  }
                   alt=""
                   width="200px"
                 />
               </li>
             );
-          }
-        })}
-      </ul>
-    </div>
-  );
+          })}
+        </ul>
+      </div>
+    );
+  }
 };
 
 export default Cast;
