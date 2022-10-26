@@ -66,11 +66,15 @@ const MovieDetails = () => {
               </li>
             </ul>
           </div>
-          <div className={css.moreInfoRight}>
-            <Link to={`/movies/${movieId}`} className={css.moreInfoLink}>
+          {/* <div className={css.moreInfoRight}>
+            <Link
+              to={`/movies/${movieId}`}
+              state={{ from: 'reviews' || 'cast' }}
+              className={css.moreInfoLink}
+            >
               Hide
             </Link>
-          </div>
+          </div> */}
         </div>
 
         <Outlet />

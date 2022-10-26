@@ -14,7 +14,7 @@ const Cast = () => {
   if (!movie) {
     return null;
   }
-  console.log(movie.cast);
+  // console.log(movie.cast);
   if (movie) {
     return (
       <div>
