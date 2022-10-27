@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import css from './MovieDetails.module.css';
 import { fetchMovieById } from 'services/Apiservice';
@@ -15,7 +15,7 @@ const MovieDetails = () => {
   if (!movies) {
     return null;
   }
-  // console.log(location.state);
+  console.log(location.state);
   const backLinkHref = location.state?.from ?? '/';
 
   return (
@@ -55,12 +55,20 @@ const MovieDetails = () => {
           <div className={css.moreInfoLeft}>
             <ul className={css.moreInfoList}>
               <li>
-                <Link to="cast" className={css.moreInfoLink}>
+                <Link
+                  to="cast"
+                  state={{ from: backLinkHref }}
+                  className={css.moreInfoLink}
+                >
                   Cast
                 </Link>
               </li>
               <li>
-                <Link to="reviews" className={css.moreInfoLink}>
+                <Link
+                  to="reviews"
+                  state={{ from: backLinkHref }}
+                  className={css.moreInfoLink}
+                >
                   Reviews
                 </Link>
               </li>
@@ -76,8 +84,9 @@ const MovieDetails = () => {
             </Link>
           </div> */}
         </div>
-
-        <Outlet />
+        <Suspense>
+          <Outlet />
+        </Suspense>
       </main>
     </>
   );

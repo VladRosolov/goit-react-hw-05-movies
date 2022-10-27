@@ -18,7 +18,6 @@ const SearchBar = ({ onSubmit }) => {
   };
 
   const handleValueChange = event => {
-    event.preventDefault();
     setValue(event.target.value.toLowerCase());
   };
 
