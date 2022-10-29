@@ -27,7 +27,7 @@ const Movies = () => {
 
   return (
     <div className={css.movieListContainer}>
-      {<SearchBar onSubmit={handleFormSubmit} />}
+      {<SearchBar query={query} onSubmit={handleFormSubmit} />}
       {movies && (
         <ul className={css.movieList}>
           {movies.map(data => {
